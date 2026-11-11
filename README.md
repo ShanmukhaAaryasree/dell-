@@ -2,7 +2,7 @@
 
 ## Overview
 
-This Scala application demonstrates batch and structured streaming data processing with Apache Spark. Its batch pipeline validates required columns, removes invalid rows, normalizes text, derives totals and age groups, removes duplicate keys, and reports data quality checks. The executable entry point runs the pipeline against deterministic sample sales data.
+This Scala application demonstrates batch and structured streaming data processing with Apache Spark. Its batch pipeline validates required columns, removes invalid rows, normalizes text, derives totals and age groups, removes duplicate keys, and reports data quality checks. Customer records can also be checked for a non-blank ID and name and a valid email address. The executable entry point runs the pipeline against deterministic sample sales data.
 
 ## Technologies
 
