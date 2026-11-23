@@ -1,0 +1,79 @@
+customer_id,customer_name,email,city,segment,signup_date
+CUST0009,Verma Mobiles,verma.mobiles8@corpexample.in,Mumbai,Enterprise,2023-10-24
+CUST0013,Iyer Retail,iyer.retail12@corpexample.in,Hyderabad,E-commerce,2024-09-05
+CUST0018,Kulkarni Retail,kulkarni.retail17@corpexample.in,Mumbai,Enterprise,2023-07-08
+CUST0028,Aarav Joshi,aarav.joshi27@mailexample.in,Bhopal,Retail,2023-07-29
+CUST0028,Aarav Joshi,aarav.joshi27@mailexample.in,Bhopal,Retail,2023-08-28
+CUST0030,Aadhya Patel,aadhya.patel29@mailexample.in,Delhi,Retail,2025-01-01
+CUST0031,Saanvi Pillai,saanvi.pillai30@mailexample.in,Delhi,Retail,2025-01-13
+CUST0032,Neha Verma,neha.verma31@mailexample.in,Mumbai,Retail,2024-11-10
+CUST0039,Verma Foods,verma.foods38@corpexample.in,Bengaluru,SME,2025-01-14
+CUST0042,Rao Mobiles,rao.mobiles41@corpexample.in,Kochi,Enterprise,2024-06-05
+CUST0050,Naidu Auto Parts,naidu.auto.parts49@corpexample.in,lucknow,SME,2024-01-31
+CUST0052,Harsha Chatterjee,harsha.chatterjee51@mailexample.in,Mumbai,Retail,2025-09-17
+CUST0058,Singh Retail,singh.retail57@corpexample.in,Mumbai,SME,2025-01-05
+CUST0066,Naidu Foods,naidu.foods65@corpexample.in,Bhubaneswar,Enterprise,2024-06-28
+CUST0066,Naidu Foods,naidu.foods65@corpexample.in,Bhubaneswar,Enterprise,2024-07-28
+CUST0072,Naidu Furnishings,naidu.furnishings71@corpexample.in,Hyderabad,SME,2023-04-04
+CUST0076,Verma Enterprises,verma.enterprises75@corpexample.in,Visakhapatnam,SME,2024-10-26
+CUST0077,Mehta Chemicals,mehta.chemicals76@corpexample.in,Mumbai,E-commerce,2024-12-06
+CUST0079,Iyer Exports,iyer.exports78@corpexample.in,Chennai,SME,2023-03-09
+CUST0084,Pillai Foods,pillai.foods83@corpexample.in,Jaipur,E-commerce,2023-11-17
+CUST0092,Pillai Agro,pillai.agro91@corpexample.in,Chennai,SME,2024-06-08
+CUST0093,Ramesh Verma,ramesh.verma92@mailexample.in,Kolkata,Retail,2025-02-25
+CUST0100,Gupta Chemicals,gupta.chemicals99@corpexample.in,Delhi,SME,2024-10-09
+CUST0100,Gupta Chemicals,gupta.chemicals99@corpexample.in,Delhi,SME,2024-11-08
+CUST0107,Sharma Enterprises,sharma.enterprises106@corpexample.in,Nagpur,E-commerce,2025-07-08
+CUST0119,Sneha Gupta,sneha.gupta118@mailexample.in,hyderabad,Retail,2024-11-18
+CUST0128,Gupta Traders,gupta.traders127@corpexample.in,Nagpur,E-commerce,2025-08-23
+CUST0134,Sharma Industries,sharma.industries133@corpexample.in,Ahmedabad,SME,2025-02-18
+CUST0135,Bose Exports,bose.exports134@corpexample.in,Bengaluru,SME,2024-01-10
+CUST0142,Karthik Gupta,karthik.gupta141@mailexample.in,Ahmedabad,Retail,2023-12-12
+CUST0144,Mehta Electronics,mehta.electronics143@corpexample.in,Kochi,SME,2023-08-02
+CUST0148,Bose Electronics,bose.electronics147@corpexample.in,Delhi,Enterprise,2024-04-15
+CUST0154,Singh Exports,singh.exports153@corpexample.in,Ahmedabad,E-commerce,2023-05-23
+CUST0159,Aarav Joshi,aarav.joshi158@mailexample.in,Delhi,Retail,2025-07-05
+CUST0160,Gupta Pharma,gupta.pharma159@corpexample.in,Indore,E-commerce,2023-08-19
+CUST0169,Mehta Auto Parts,mehta.auto.parts168@corpexample.in,Mumbai,Enterprise,2023-10-13
+CUST0188,Aarav Das,aarav.das187@mailexample.in,Vijayawada,Retail,2025-10-03
+CUST0189,Iyer Enterprises,iyer.enterprises188@corpexample.in,Chennai,Enterprise,2023-06-15
+CUST0195,Vivaan Kulkarni,vivaan.kulkarni194@mailexample.in,Coimbatore,Retail,2025-11-01
+CUST0199,Iyer Auto Parts,iyer.auto.parts198@corpexample.in,Patna,SME,2023-01-29
+CUST0201,Bose Auto Parts,bose.auto.parts200@corpexample.in,Lucknow,SME,2023-07-30
+CUST0205,Menon Chemicals,menon.chemicals204@corpexample.in,Chennai,SME,2025-03-30
+CUST0207,Khan Retail,khan.retail206@corpexample.in,Hyderabad,E-commerce,2023-06-26
+CUST0208,Iyer Retail,iyer.retail207@corpexample.in,Kolkata,E-commerce,2025-09-24
+CUST0237,Arjun Pillai,arjun.pillai236@mailexample.in,Warangal,Retail,2025-04-03
+CUST0253,Sunita Mehta,sunita.mehta252@mailexample.in,Chennai,Retail,2023-11-17
+CUST0254,Khan Ceramics,khan.ceramics253@corpexample.in,Nagpur,SME,2023-11-21
+CUST0261,Gupta Auto Parts,gupta.auto.parts260@corpexample.in,Coimbatore,SME,2023-05-29
+CUST0263,Verma Chemicals,verma.chemicals262@corpexample.in,Bhopal,E-commerce,2025-11-13
+CUST0280,Patel Industries,patel.industries279@corpexample.in,Mumbai,Enterprise,2023-06-23
+CUST0285,Singh Industries,singh.industries284@corpexample.in,Bhopal,SME,2025-04-24
+CUST0286,Das Retail,das.retail285@corpexample.in,Mumbai,E-commerce,2025-02-27
+CUST0297,Chatterjee Industries,chatterjee.industries296@corpexample.in,Jaipur,E-commerce,2023-09-09
+CUST0300,Sharma Ceramics,sharma.ceramics299@corpexample.in,Kolkata,E-commerce,2025-06-27
+CUST0317,Naidu Chemicals,naidu.chemicals316@corpexample.in,Bengaluru,E-commerce,2025-06-26
+CUST0319,Aditya Patel,aditya.patel318@mailexample.in,Coimbatore,Retail,2023-09-18
+CUST0322,Das Retail,das.retail321@corpexample.in,Pune,E-commerce,2025-02-22
+CUST0327,Khan Chemicals,khan.chemicals326@corpexample.in,Jaipur,SME,2023-12-19
+CUST0330,Gupta Exports,gupta.exports329@corpexample.in,Bengaluru,SME,2024-10-08
+CUST0332,Joshi Mobiles,joshi.mobiles331@corpexample.in,Kolkata,SME,2023-05-11
+CUST0337,Suresh Pillai,suresh.pillai336@mailexample.in,Bengaluru,Retail,2025-07-04
+CUST0341,Khan Retail,khan.retail340@corpexample.in,Bengaluru,E-commerce,2025-11-28
+CUST0343,Mehta Industries,mehta.industries342@corpexample.in,Surat,SME,2024-02-09
+CUST0345,Mehta Exports,mehta.exports344@corpexample.in,Pune,Enterprise,2025-04-13
+CUST0347,Chatterjee Mobiles,chatterjee.mobiles346@corpexample.in,Patna,Enterprise,2024-06-02
+CUST0348,Iyer Retail,iyer.retail347@corpexample.in,CHENNAI,SME,2023-05-07
+CUST0349,Karthik Pillai,karthik.pillai348@mailexample.in,Delhi,Retail,2025-06-19
+CUST0355,Iyer Auto Parts,iyer.auto.parts354@corpexample.in,Hyderabad,SME,2025-09-06
+CUST0358,Singh Textiles,singh.textiles357@corpexample.in,Delhi,Enterprise,2025-03-09
+CUST0363,Mehta Foods,mehta.foods362@corpexample.in,Mumbai,SME,2024-11-04
+CUST0366,Pillai Auto Parts,pillai.auto.parts365@corpexample.in,Hyderabad,SME,2024-06-18
+CUST0377,Mehta Agro,mehta.agro376@corpexample.in,Jaipur,SME,2025-02-17
+CUST0378,Joshi Enterprises,joshi.enterprises377@corpexample.in,Chandigarh,SME,2024-08-23
+CUST0382,Arjun Khan,arjun.khan381@mailexample.in,Pune,Retail,2024-11-30
+CUST0387,Pooja Menon,pooja.menon386@mailexample.in,Mumbai,Retail,2023-03-09
+CUST0388,Bose Auto Parts,bose.auto.parts387@corpexample.in,Bengaluru,SME,2023-05-02
+CUST0391,Sharma Retail,sharma.retail390@corpexample.in,Hyderabad,Enterprise,2024-02-01
+CUST0392,Menon Traders,menon.traders391@corpexample.in,Bengaluru,Enterprise,2023-03-11

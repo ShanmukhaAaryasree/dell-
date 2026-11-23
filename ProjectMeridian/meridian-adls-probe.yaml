@@ -1,0 +1,68 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: meridian-adls-probe
+data:
+  probe.scala: |
+    try {
+      val account = "adlsgen2dbs.dfs.core.windows.net"
+      val path = new org.apache.hadoop.fs.Path(
+        s"abfss://datasets@$account/meridian/validation/kubernetes-${java.util.UUID.randomUUID()}.txt")
+      val config = spark.sparkContext.hadoopConfiguration
+      config.set(s"fs.azure.account.auth.type.$account", "OAuth")
+      config.set(s"fs.azure.account.oauth.provider.type.$account",
+        "org.apache.hadoop.fs.azurebfs.oauth2.ClientCredsTokenProvider")
+      config.set(s"fs.azure.account.oauth2.client.id.$account", sys.env("AZURE_CLIENT_ID"))
+      config.set(s"fs.azure.account.oauth2.client.secret.$account", sys.env("AZURE_CLIENT_SECRET"))
+      config.set(s"fs.azure.account.oauth2.client.endpoint.$account",
+        s"https://login.microsoftonline.com/${sys.env("AZURE_TENANT_ID")}/oauth2/token")
+      val fs = path.getFileSystem(config)
+      val expected = "Meridian Kubernetes ADLS write check"
+      val out = fs.create(path, false)
+      try out.writeUTF(expected) finally out.close()
+      val in = fs.open(path)
+      val actual = try in.readUTF() finally in.close()
+      require(actual == expected, "ADLS read-back differed from the write")
+      println("PASS: Kubernetes Spark wrote and read its ADLS probe.")
+    } catch {
+      case scala.util.control.NonFatal(error) =>
+        error.printStackTrace()
+        sys.exit(1)
+    }
+---
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: meridian-adls-probe
+spec:
+  backoffLimit: 0
+  template:
+    spec:
+      restartPolicy: Never
+      containers:
+        - name: spark
+          image: apache/spark:3.5.3-java17-scala
+          envFrom:
+            - secretRef:
+                name: meridian-adls-auth
+          command: ["/bin/bash", "-ec"]
+          args:
+            - |
+              exec /opt/spark/bin/spark-shell --master 'local[1]' --driver-memory 768m \
+                --conf spark.ui.enabled=false --conf spark.jars.ivy=/tmp/meridian-ivy \
+                --packages org.apache.hadoop:hadoop-azure:3.3.4 -i /app/probe.scala </dev/null
+          resources:
+            requests:
+              cpu: 100m
+              memory: 768Mi
+            limits:
+              cpu: "1"
+              memory: 1536Mi
+          volumeMounts:
+            - name: script
+              mountPath: /app
+              readOnly: true
+      volumes:
+        - name: script
+          configMap:
+            name: meridian-adls-probe

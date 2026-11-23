@@ -1,0 +1,54 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "TrackingEvent",
+  "type": "object",
+  "required": [
+    "event_id",
+    "hub_id",
+    "event_type",
+    "event_time",
+    "ingest_time"
+  ],
+  "properties": {
+    "event_id": {
+      "type": "string",
+      "pattern": "^EVT\\d{7}$"
+    },
+    "shipment_id": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "pattern": "^SHP2026\\d{6}$"
+    },
+    "hub_id": {
+      "type": "string",
+      "pattern": "^HUB\\d{2}$"
+    },
+    "event_type": {
+      "type": "string",
+      "description": "Valid: PICKED_UP, DEPARTED_HUB, ARRIVED_AT_HUB, ROUTE_CHECKPOINT, OUT_FOR_DELIVERY, DELIVERED, DELAYED, EXCEPTION. Raw data also contains SCAN_ERR, ??, UNKNOWN (to be rejected)."
+    },
+    "event_time": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "ingest_time": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "vehicle_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "delay_minutes": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "minimum": 0
+    }
+  }
+}

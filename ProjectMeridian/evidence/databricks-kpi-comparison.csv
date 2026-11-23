@@ -1,0 +1,5 @@
+iceberg_table,row_count,rows_match_delta
+aarya.default.meridian_kpi_monthly_delivery_iceberg,11,true
+aarya.default.meridian_kpi_carrier_scorecard_iceberg,12,true
+aarya.default.meridian_kpi_lane_performance_iceberg,89,true
+aarya.default.meridian_kpi_delay_reasons_iceberg,14,true

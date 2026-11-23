@@ -1,0 +1,52 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: meridian-stream
+spec:
+  replicas: 1
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      app: meridian-stream
+  template:
+    metadata:
+      labels:
+        app: meridian-stream
+    spec:
+      securityContext:
+        fsGroup: 185
+      containers:
+        - name: spark
+          image: meridian-stream:v1
+          imagePullPolicy: IfNotPresent
+          envFrom:
+            - configMapRef:
+                name: meridian-stream
+          startupProbe:
+            exec:
+              command: ["/bin/sh", "-c", "test -f /tmp/meridian-stream-ready"]
+            periodSeconds: 5
+            failureThreshold: 60
+          readinessProbe:
+            exec:
+              command: ["/bin/sh", "-c", "test -f /tmp/meridian-stream-ready"]
+            periodSeconds: 5
+          livenessProbe:
+            exec:
+              command: ["/bin/sh", "-c", "test -f /tmp/meridian-stream-ready"]
+            periodSeconds: 10
+          resources:
+            requests:
+              cpu: 250m
+              memory: 1Gi
+            limits:
+              cpu: "2"
+              memory: 2Gi
+          volumeMounts:
+            - name: state
+              mountPath: /meridian
+      volumes:
+        - name: state
+          persistentVolumeClaim:
+            claimName: meridian-stream-state

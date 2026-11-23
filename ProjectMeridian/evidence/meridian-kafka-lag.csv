@@ -1,0 +1,2 @@
+"Topic","Partition","CommittedBatch","SparkOffset","KafkaEndOffset","Lag"
+"shipment-tracking-adls-recovery","0","4","45","45","0"

@@ -1,0 +1,26 @@
+hub_id,hub_name,city,state,region,hub_type,latitude,longitude,capacity_shipments_per_day,active
+HUB01,Hyderabad,Hyderabad,Telangana,South,Gateway,17.385,78.4867,1800,Y
+HUB02,Mumbai,Mumbai,Maharashtra,West,Gateway,19.076,72.8777,2400,Y
+HUB03,Delhi,Delhi,Delhi,North,Gateway,28.6139,77.209,2600,Y
+HUB03,Delhi,Delhi,Delhi,North,Gateway,28.6139,77.209,2600,Y
+HUB04,Bengaluru,Bengaluru,Karnataka,South,Gateway,12.9716,77.5946,2100,Y
+HUB05,Chennai,Chennai,Tamil Nadu,South,Gateway,13.0827,80.2707,1700,Y
+HUB06,Kolkata,Kolkata,West Bengal,East,Gateway,22.5726,88.3639,1500,Y
+HUB07,Pune,Pune,Maharashtra,West,Regional,18.5204,73.8567,900,Y
+HUB08,Ahmedabad,Ahmedabad,Gujarat,West,Regional,23.0225,72.5714,1000,Y
+HUB09,Jaipur,Jaipur,Rajasthan,North,Regional,26.9124,75.7873,700,Y
+HUB10,Lucknow,Lucknow,Uttar Pradesh,North,Regional,26.8467,80.9462,750,Y
+HUB11,Nagpur,Nagpur,Maharashtra,Central,Regional,21.1458,79.0882,650,Y
+HUB12,Bhopal,Bhopal,Madhya Pradesh,Central,Regional,23.2599,77.4126,500,Y
+HUB13,Indore,Indore,Madhya Pradesh,Central,Regional,22.7196,75.8577,600,Y
+HUB14,Visakhapatnam,Visakhapatnam,Andhra Pradesh,South,Regional,17.6868,83.2185,550,Y
+HUB15,Kochi,Kochi,Kerala,South,Regional,99.9314,76.2673,500,Y
+HUB16,Coimbatore,Coimbatore,Tamil Nadu,South,Regional,11.0168,76.9558,450,Y
+HUB17,Patna,Patna,Bihar,East,Regional,25.5941,85.1376,450,Y
+HUB18,Bhubaneswar,Bhubaneswar,Odisha,East,Regional,20.2961,85.8245,400,Y
+HUB19,Guwahati,Guwahati,Assam,Northeast,Regional,26.1445,91.7362,350,Y
+HUB20,Chandigarh,Chandigarh,Chandigarh,North,Local,30.7333,76.7794,350,N
+HUB21,Surat,Surat,Gujarat,West,Local,21.1702,72.8311,500,Y
+HUB22,Vijayawada,Vijayawada,Andhra Pradesh,South,Local,16.5062,80.648,380,Y
+HUB23,Warangal,Warangal,Telangana,South,Local,17.9689,79.5941,250,Y
+HUB24,Mangaluru,Mangaluru,Karnataka,South,Local,12.9141,74.856,280,Y

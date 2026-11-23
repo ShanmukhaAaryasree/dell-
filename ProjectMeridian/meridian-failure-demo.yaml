@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: meridian-failure-demo
+spec:
+  replicas: 0
+  selector:
+    matchLabels:
+      app: meridian-failure-demo
+  template:
+    metadata:
+      labels:
+        app: meridian-failure-demo
+    spec:
+      containers:
+        - name: producer
+          image: meridian-producer:v1
+          imagePullPolicy: IfNotPresent
+          command: ["/bin/sh", "-ec"]
+          args:
+            - |
+              echo "Demo failure: missing KAFKA_TOPIC configuration" >&2
+              exit 42
+          resources:
+            requests:
+              cpu: 25m
+              memory: 32Mi
+            limits:
+              cpu: 100m
+              memory: 64Mi

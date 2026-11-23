@@ -1,0 +1,44 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: meridian-producer
+data:
+  KAFKA_BOOTSTRAP_SERVERS: meridian-kafka:9092
+  KAFKA_TOPIC: shipment-tracking-producer-demo
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: meridian-producer
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: meridian-producer
+  template:
+    metadata:
+      labels:
+        app: meridian-producer
+    spec:
+      containers:
+        - name: producer
+          image: meridian-producer:v1
+          imagePullPolicy: Never
+          envFrom:
+            - configMapRef:
+                name: meridian-producer
+          readinessProbe:
+            exec:
+              command: ["/bin/sh", "-c", "test -f /tmp/meridian-replay-complete"]
+            periodSeconds: 5
+          livenessProbe:
+            exec:
+              command: ["/bin/sh", "-c", "kill -0 1"]
+            periodSeconds: 15
+          resources:
+            requests:
+              cpu: 100m
+              memory: 128Mi
+            limits:
+              cpu: "1"
+              memory: 512Mi

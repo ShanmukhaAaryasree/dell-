@@ -64,17 +64,17 @@ java --add-opens=java.base/java.lang=ALL-UNNAMED --add-opens=java.base/java.lang
 
 ## Git setup and contribution workflow
 
-Git is initialized locally on `main`. No GitHub remote is configured. Once you have created the GitHub repository, add its actual URL (do not use a placeholder):
-
-```shell
-git remote add origin <your-repository-url>
-```
+Git is initialized locally. The `origin` remote points to `https://github.com/ShanmukhaAaryasree/dell-.git`.
 
 Keep `main` stable. Create short-lived branches named `feature/<description>`, `bugfix/<description>`, or `chore/<description>`. Make focused changes, add or update tests, run formatting, static checks, tests, and assembly, then inspect `git status` and `git diff`. Use conventional commits such as `feat: add customer validation`, `fix: handle empty input`, `test: cover invalid customer id`, and `chore: configure scalafmt`. Push the branch and open a pull request targeting `main`. Address review comments and CI failures on that branch. Merge only after required reviews and checks pass; then delete the branch and update local `main`. Do not develop features directly on `main`.
 
 ## GitHub Actions
 
 `.github/workflows/ci.yml` runs on pushes to `main`, `feature/**`, `bugfix/**`, and `chore/**`, and on pull requests targeting `main`. It uses Ubuntu, Temurin JDK 21, sbt dependency caching, and performs formatting checks, a Scalafix run with a tracked-diff guard, tests, and assembly. The assembly JAR is uploaded as the `application-assembly` artifact. A remote workflow result is available only after pushing to a configured GitHub repository.
+
+## Project Meridian
+
+The [`ProjectMeridian`](ProjectMeridian/) folder contains the logistics capstone, including batch shipment quality processing, Delta and Iceberg analytics, Kafka tracking events, and a Spark Structured Streaming consumer. Its README documents the local Kafka and Spark Compose setup, the continuous Kubernetes deployment, supplied datasets, and validation limits. The local continuous consumer checks Kafka every two seconds by default.
 
 ## Troubleshooting
 

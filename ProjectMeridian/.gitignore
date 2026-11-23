@@ -1,0 +1,12 @@
+.env
+.env.*
+!.env.example
+*.secret
+*.pem
+*.key
+target/
+.bsp/
+.metals/
+.idea/
+*.iml
+.DS_Store

@@ -1,0 +1,14 @@
+carrier_id,carrier_name,transport_mode,service_level,rate_per_kg_km_inr,sla_on_time_pct,active
+CAR001,SwiftHaul Roadways,Road,Standard,0.0115,90,Y
+CAR002,TransIndia Express,Road,Express,0.015,94,Y
+CAR003,Deccan Freight Lines,Road,Standard,0.0105,88,Y
+CAR004,AeroCargo India,Air,Express,0.062,96,Y
+CAR005,RailLink Logistics,Rail,Economy,0.0075,85,Y
+CAR006,Konkan Carriers,Road,Economy,0.009,82,Y
+CAR006,Konkan Carriers,Road,Economy,0.009,82,Y
+CAR007,NorthStar Cargo,Road,Standard,0.012,90,Y
+CAR008,Ganga Movers,Rail,Standard,0.0085,86,Y
+CAR009,Coastal Express Lines,Road,Express,0.0145,93,Y
+CAR010,Vayu Air Freight,Air,Express,0.068,97,Y
+CAR011,Metro Parcel Services,Road,Express,0.016,92,Y
+CAR012,Kaveri Transport Co,Road,Economy,0.0088,80,N

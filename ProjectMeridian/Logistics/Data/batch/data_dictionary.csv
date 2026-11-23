@@ -1,0 +1,46 @@
+dataset,field,type,description,rule_or_note
+hubs,hub_id,string,Unique hub identifier (HUBnn),Primary key; required
+hubs,hub_name,string,Name of the hub,Required
+hubs,city,string,City where the hub is located,Required
+hubs,state,string,Indian state / union territory,Required
+hubs,region,string,"North, South, East, West, Central or Northeast",Allowed set
+hubs,hub_type,string,"Gateway, Regional or Local",Allowed set
+hubs,latitude,decimal,Hub latitude in degrees,-90 to 90
+hubs,longitude,decimal,Hub longitude in degrees,-180 to 180
+hubs,capacity_shipments_per_day,integer,Nominal daily handling capacity,> 0
+hubs,active,string,Y or N,Allowed set
+carriers,carrier_id,string,Unique carrier identifier (CARnnn),Primary key; required
+carriers,carrier_name,string,Carrier (transport provider) name,Required
+carriers,transport_mode,string,"Road, Rail or Air",Allowed set
+carriers,service_level,string,"Express, Standard or Economy",Allowed set
+carriers,rate_per_kg_km_inr,decimal,Contract rate in INR per kg per km,> 0
+carriers,sla_on_time_pct,integer,Contracted on-time delivery target (%),0 to 100
+carriers,active,string,Y or N (currently contracted),Allowed set
+customers,customer_id,string,Unique customer identifier (CUSTnnnn),Primary key; required
+customers,customer_name,string,Customer or company name,Required
+customers,email,string,Contact email,Valid email format
+customers,city,string,Customer city,Standardise casing
+customers,segment,string,"Enterprise, SME, E-commerce or Retail",Allowed set
+customers,signup_date,date,Date customer was onboarded (YYYY-MM-DD),Valid date
+shipments,shipment_id,string,Unique shipment identifier (SHP2026nnnnnn),Primary key; required
+shipments,customer_id,string,Customer who booked the shipment,FK to customers
+shipments,carrier_id,string,Carrier assigned to move the shipment,FK to carriers
+shipments,origin_hub_id,string,Hub where shipment was picked up,FK to hubs
+shipments,destination_hub_id,string,Hub nearest to the delivery address,FK to hubs; differs from origin
+shipments,ship_date,date,Booking / dispatch date (YYYY-MM-DD; some rows DD-MM-YYYY),Valid date
+shipments,promised_date,date,Delivery date promised under the SLA,On or after ship_date
+shipments,delivery_date,date,Actual delivery (or return) date; blank if not yet delivered or cancelled,On or after ship_date when present
+shipments,weight_kg,decimal,Chargeable weight in kilograms,> 0
+shipments,distance_km,decimal,Approximate road-route distance between origin and destination hubs,> 0; may be blank
+shipments,freight_charge_inr,decimal,Amount charged to the customer in INR,> = 0
+shipments,shipment_status,string,"DELIVERED, IN_TRANSIT, BOOKED, CANCELLED or RETURNED (raw values vary)",Standardise
+shipments,delay_reason,string,Reason recorded for late shipments (blank if none),Optional
+shipments,last_updated,timestamp,Last time the record was changed in the source system (YYYY-MM-DD HH:MM:SS),Used to resolve duplicates
+tracking_events,event_id,string,Unique event identifier (EVTnnnnnnn),Unique per event; duplicates possible
+tracking_events,shipment_id,string,Shipment the event relates to,FK to shipments
+tracking_events,hub_id,string,Hub where the scan occurred,FK to hubs
+tracking_events,event_type,string,"PICKED_UP, DEPARTED_HUB, ARRIVED_AT_HUB, ROUTE_CHECKPOINT, OUT_FOR_DELIVERY, DELIVERED, DELAYED, EXCEPTION",Allowed set
+tracking_events,event_time,timestamp (UTC),"When the event happened (ISO-8601, e.g. 2026-11-19T08:03:12Z) - use as event time",Required
+tracking_events,ingest_time,timestamp (UTC),When the event reached the platform; rows are sorted by this column to simulate arrival order,Required
+tracking_events,vehicle_id,string,Vehicle that scanned / carried the shipment,Optional
+tracking_events,delay_minutes,integer,Delay reported (non-zero on DELAYED and EXCEPTION events),> = 0

@@ -1,0 +1,11 @@
+delay_reason,late_shipments,delay_category
+VEHICLE BREAKDOWN,1,null
+WEATHER,1,null
+TRAFFIC CONGESTION,1,null
+DOCUMENTATION,1,null
+TRAFFIC CONGESTION,1,null
+CUSTOMER UNAVAILABLE,1,null
+ADDRESS ISSUE,1,null
+WEATHER,1,null
+WEATHER,1,null
+WEATHER,2,null

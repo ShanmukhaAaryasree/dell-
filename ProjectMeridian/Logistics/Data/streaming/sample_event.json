@@ -1,0 +1,10 @@
+{
+  "event_id": "EVT0000311",
+  "shipment_id": "SHP2026008426",
+  "hub_id": "HUB06",
+  "event_type": "PICKED_UP",
+  "event_time": "2026-11-19T06:01:27Z",
+  "ingest_time": "2026-11-19T06:01:27Z",
+  "vehicle_id": "VEH-1054",
+  "delay_minutes": 0
+}

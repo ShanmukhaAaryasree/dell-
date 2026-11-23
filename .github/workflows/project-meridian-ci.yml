@@ -1,0 +1,67 @@
+name: Project Meridian CI
+
+on:
+  push:
+    branches:
+      - main
+      - "feature/**"
+      - "bugfix/**"
+      - "chore/**"
+    paths:
+      - "ProjectMeridian/**"
+      - ".github/workflows/project-meridian-ci.yml"
+  pull_request:
+    branches:
+      - main
+    paths:
+      - "ProjectMeridian/**"
+      - ".github/workflows/project-meridian-ci.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  producer-image:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build the Kafka replay producer
+        run: docker build -f ProjectMeridian/meridian-producer.Dockerfile -t meridian-producer:ci ProjectMeridian
+      - name: Check non-root user and replay fixture
+        run: |
+          docker run --rm --entrypoint /bin/sh meridian-producer:ci -ec '
+            test "$(id -u)" -ne 0
+            test "$(grep -c . /opt/kafka/meridian-events.txt)" -eq 43
+          '
+
+  processing-images:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build batch and streaming workloads
+        run: |
+          docker build -f ProjectMeridian/meridian-batch.Dockerfile -t meridian-batch:ci ProjectMeridian
+          docker build -f ProjectMeridian/meridian-stream.Dockerfile -t meridian-stream:ci ProjectMeridian
+          docker compose -f ProjectMeridian/compose.realtime.yaml config --quiet
+      - name: Verify runtime dependencies and non-root users
+        run: |
+          test "$(docker run --rm --entrypoint id meridian-batch:ci -u)" -ne 0
+          docker run --rm --entrypoint /bin/bash meridian-stream:ci -ec '
+            test "$(id -u)" -ne 0
+            compgen -G "/opt/meridian/jars/*kafka-clients*.jar"
+            compgen -G "/opt/meridian/jars/*delta-spark*.jar"
+            compgen -G "/opt/meridian/jars/*iceberg-spark-runtime*.jar"
+            compgen -G "/opt/meridian/jars/*hadoop-azure*.jar"
+          '
+      - name: Run batch reconciliation against mini dataset
+        run: |
+          set -o pipefail
+          docker run --rm meridian-batch:ci 2>&1 | tee "$RUNNER_TEMP/meridian-batch.log"
+          grep -F 'Batch verified: raw=141 latest=133 curated=122 rejected=11' "$RUNNER_TEMP/meridian-batch.log"
+      - name: Upload batch verification log
+        uses: actions/upload-artifact@v4
+        with:
+          name: meridian-batch-verification
+          path: ${{ runner.temp }}/meridian-batch.log
+          if-no-files-found: error
